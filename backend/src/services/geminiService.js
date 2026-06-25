@@ -1,7 +1,7 @@
 import { getGeminiModel } from '../config/gemini.js'
 import logger from '../utils/logger.js'
 
-const FALLBACK_MODELS = (process.env.GEMINI_FALLBACK_MODELS || 'gemini-2.5-flash-lite,gemini-3.5-flash')
+const FALLBACK_MODELS = (process.env.GEMINI_FALLBACK_MODELS || 'gemini-1.5-flash')
   .split(',')
   .map(model => model.trim())
   .filter(Boolean)
@@ -14,7 +14,7 @@ const isTransientGeminiError = (err) => {
 }
 
 const getModelCandidates = () => {
-  const primary = process.env.GEMINI_MODEL || 'gemini-2.5-flash'
+  const primary = process.env.GEMINI_MODEL || 'gemini-1.5-flash'
   return [...new Set([primary, ...FALLBACK_MODELS])]
 }
 

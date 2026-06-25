@@ -2,6 +2,7 @@ const REQUIRED_ENV_VARS = [
   'MONGODB_URI',
   'JWT_SECRET',
   'JWT_REFRESH_SECRET',
+  'GEMINI_API_KEY',
 ]
 
 export const validateEnv = () => {

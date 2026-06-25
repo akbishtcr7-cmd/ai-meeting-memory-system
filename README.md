@@ -71,7 +71,7 @@ Backend: http://localhost:5000
 6. Set `CLIENT_URL` to your frontend URL, for example `https://your-app.vercel.app`
 
 Required backend variables for auth startup:
-`MONGODB_URI`, `JWT_SECRET`, and `JWT_REFRESH_SECRET`.
+`MONGODB_URI`, `JWT_SECRET`, `JWT_REFRESH_SECRET`, and `GEMINI_API_KEY`.
 
 ### Database → MongoDB Atlas
 
