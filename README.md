@@ -70,6 +70,9 @@ Backend: http://localhost:5000
 5. Add all environment variables from `.env.example`
 6. Set `CLIENT_URL` to your frontend URL, for example `https://your-app.vercel.app`
 
+Required backend variables for auth startup:
+`MONGODB_URI`, `JWT_SECRET`, and `JWT_REFRESH_SECRET`.
+
 ### Database → MongoDB Atlas
 
 1. Create cluster at mongodb.com/cloud/atlas
