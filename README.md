@@ -68,6 +68,7 @@ Backend: http://localhost:5000
 3. Build command: `npm install`
 4. Start command: `node src/server.js`
 5. Add all environment variables from `.env.example`
+6. Set `CLIENT_URL` to your frontend URL, for example `https://your-app.vercel.app`
 
 ### Database → MongoDB Atlas
 

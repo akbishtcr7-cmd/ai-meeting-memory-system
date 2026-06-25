@@ -15,10 +15,29 @@ import { notFound, errorHandler } from './middleware/errorMiddleware.js'
 
 const app = express()
 
+const parseOrigins = (...values) => values
+  .filter(Boolean)
+  .flatMap((value) => value.split(','))
+  .map((origin) => origin.trim().replace(/\/+$/, ''))
+  .filter(Boolean)
+
+const allowedOrigins = new Set(parseOrigins(
+  'http://localhost:3000',
+  process.env.CLIENT_URL,
+  process.env.CLIENT_URLS
+))
+
 // Security
 app.use(helmet())
 app.use(cors({
-  origin: process.env.CLIENT_URL || 'http://localhost:3000',
+  origin(origin, callback) {
+    if (!origin || allowedOrigins.has(origin.replace(/\/+$/, ''))) {
+      callback(null, true)
+      return
+    }
+
+    callback(new Error(`Origin ${origin} is not allowed by CORS`))
+  },
   credentials: true,
   methods: ['GET', 'POST', 'PUT', 'PATCH', 'DELETE'],
 }))
