@@ -48,6 +48,8 @@ const authLimiter = rateLimit({ windowMs: 15 * 60 * 1000, max: 10, message: 'Too
 app.use('/api', limiter)
 app.use('/api/auth/login', authLimiter)
 app.use('/api/auth/register', authLimiter)
+app.use('/auth/login', authLimiter)
+app.use('/auth/register', authLimiter)
 
 // Body parsing
 app.use(express.json({ limit: '10mb' }))
@@ -61,6 +63,7 @@ if (process.env.NODE_ENV !== 'test') app.use(morgan('dev'))
 app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Date().toISOString() }))
 
 // Routes
+app.use('/auth', authRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/meetings', meetingRoutes)
