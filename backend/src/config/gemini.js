@@ -2,12 +2,9 @@ import { GoogleGenerativeAI } from '@google/generative-ai'
 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY)
 
-const DEFAULT_MODEL = 'gemini-1.5-flash'
+const DEFAULT_MODEL = 'gemini-2.5-flash'
 const MODEL_ALIASES = {
   'gemini-pro': DEFAULT_MODEL,
-  'gemini-2.5-flash': DEFAULT_MODEL,
-  'gemini-2.5-flash-lite': DEFAULT_MODEL,
-  'gemini-3.5-flash': DEFAULT_MODEL,
 }
 
 export const resolveGeminiModelName = (modelName = DEFAULT_MODEL) => {
