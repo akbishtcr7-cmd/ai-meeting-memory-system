@@ -64,6 +64,10 @@ app.get('/api/health', (req, res) => res.json({ status: 'ok', timestamp: new Dat
 
 // Routes
 app.use('/auth', authRoutes)
+app.use('/users', userRoutes)
+app.use('/meetings', meetingRoutes)
+app.use('/upload', uploadRoutes)
+app.use('/ai', aiRoutes)
 app.use('/api/auth', authRoutes)
 app.use('/api/users', userRoutes)
 app.use('/api/meetings', meetingRoutes)
